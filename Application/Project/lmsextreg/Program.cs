@@ -25,14 +25,14 @@ namespace lmsextreg
                 try
                 {
                     var services = scope.ServiceProvider;
-                    // var context = services.GetRequiredService<ApplicationDbContext>();
-                    // context.Database.Migrate();
+                    var context = services.GetRequiredService<ApplicationDbContext>();
+                    context.Database.Migrate();
 
-                    var config = host.Services.GetRequiredService<IConfiguration>();
-                    var tempPW = config[MiscConstants.SEED_TEMP_PW];
+                    // var config = host.Services.GetRequiredService<IConfiguration>();
+                    // var tempPW = config[MiscConstants.SEED_TEMP_PW];
 
-                    Console.WriteLine("[Program] tempPW: " +  tempPW);
-                    DataSeed.Initialize(services, tempPW).Wait();
+                    // Console.WriteLine("[Program] tempPW: " +  tempPW);
+                    //DataSeed.Initialize(services, tempPW).Wait();
                 }
                 catch (Exception ex)
                 {

@@ -226,10 +226,16 @@ namespace lmsextreg.Data
 
             // Set up Vicki, Jason Hull, JMac and Al Ortega as approvers
             emailNotify = true;
-            await EnsureApprover(svcProvider, "vicki.crawley@gsa.gov",    tempPW, "Victoria", "Crawley",    "GS", "GS03", "PC", emailNotify);    
-            await EnsureApprover(svcProvider, "jason.hull@gsa.gov",       tempPW, "Jason",    "Hull",       "GS", "GS03", "PC", emailNotify);    
-            await EnsureApprover(svcProvider, "james.mcconville@gsa.gov", tempPW, "James",    "McConville", "GS", "GS03", "PC", emailNotify);  
-            await EnsureApprover(svcProvider, "alfred.ortega@gsa.gov",    tempPW, "Al",       "Ortega",     "GS", "GS03", "PC", emailNotify);  
+            // await EnsureApprover(svcProvider, "vicki.crawley@gsa.gov",    tempPW, "Victoria", "Crawley",    "GS", "GS03", "PC", emailNotify);    
+            // await EnsureApprover(svcProvider, "jason.hull@gsa.gov",       tempPW, "Jason",    "Hull",       "GS", "GS03", "PC", emailNotify);    
+            // await EnsureApprover(svcProvider, "james.mcconville@gsa.gov", tempPW, "James",    "McConville", "GS", "GS03", "PC", emailNotify);  
+            // await EnsureApprover(svcProvider, "alfred.ortega@gsa.gov",    tempPW, "Al",       "Ortega",     "GS", "GS03", "PC", emailNotify);  
+            
+            emailNotify = true;
+            await EnsureApprover(svcProvider, "vicaramis@gmail.com",        tempPW, "Victoria", "Crawley",    "GS", "GS03", "PC", emailNotify);    
+            await EnsureApprover(svcProvider, "golfj7769@gmail.com",        tempPW, "Jason",    "Hull",       "GS", "GS03", "PC", emailNotify);    
+            await EnsureApprover(svcProvider, "jmcc1121@gmail.com",         tempPW, "James",    "McConville", "GS", "GS03", "PC", emailNotify);  
+            await EnsureApprover(svcProvider, "alfredortegaiii@gmail.com",  tempPW, "Al",       "Ortega",     "GS", "GS03", "PC", emailNotify); 
 
             /////////////////////////////////////////////////////////////////////////////////////////
             // Default setting for program approvers is:

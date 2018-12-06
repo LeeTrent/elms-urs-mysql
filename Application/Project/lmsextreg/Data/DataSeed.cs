@@ -224,7 +224,7 @@ namespace lmsextreg.Data
             emailNotify = false;
             await EnsureApprover(svcProvider, "lee.trent@gsa.gov", tempPW, "Lee", "Trent - PF1", "GS", "GS03", "PF", emailNotify);    
 
-            // Set up Vicki, Jason Hull, JMac and Al Ortega as approvers
+            // Set up Vicki, Jason Hull, JMac and Al Ortega as approvers for Program C
             emailNotify = true;
             // await EnsureApprover(svcProvider, "vicki.crawley@gsa.gov",    tempPW, "Victoria", "Crawley",    "GS", "GS03", "PC", emailNotify);    
             // await EnsureApprover(svcProvider, "jason.hull@gsa.gov",       tempPW, "Jason",    "Hull",       "GS", "GS03", "PC", emailNotify);    
@@ -236,6 +236,10 @@ namespace lmsextreg.Data
             await EnsureApprover(svcProvider, "golfj7769@gmail.com",        tempPW, "Jason",    "Hull",       "GS", "GS03", "PC", emailNotify);    
             await EnsureApprover(svcProvider, "jmcc1121@gmail.com",         tempPW, "James",    "McConville", "GS", "GS03", "PC", emailNotify);  
             await EnsureApprover(svcProvider, "alfredortegaiii@gmail.com",  tempPW, "Al",       "Ortega",     "GS", "GS03", "PC", emailNotify); 
+
+            // Set up Chee Ong as an approver for Program B
+            emailNotify = true;
+            await EnsureApprover(svcProvider, "ongcw@yahoo.com",  tempPW, "Chee", "Ong",    "GS", "GS03", "PB", emailNotify); 
 
             /////////////////////////////////////////////////////////////////////////////////////////
             // Default setting for program approvers is:

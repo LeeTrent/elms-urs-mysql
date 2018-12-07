@@ -53,14 +53,28 @@ namespace lmsextreg.Pages.Enrollments
             // This is used to manage the user interface to make sure that student
             // can't enroll in the same program more than once.
             /////////////////////////////////////////////////////////////////////////
+            // PostgreSQL
+            /////////////////////////////////////////////////////////////////////////
+            // var sql = " SELECT * "
+            //         + " FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"LMSProgram\" "
+            //         + " WHERE \"LMSProgramID\" "
+            //         + " NOT IN "
+            //         + " ( SELECT \"LMSProgramID\" "
+            //         + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramEnrollment\" " 
+            //         + "   WHERE \"StudentUserId\" = {0} "
+            //         + " )";
+            /////////////////////////////////////////////////////////////////////////
+            // MySQL
+            /////////////////////////////////////////////////////////////////////////
             var sql = " SELECT * "
-                    + " FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"LMSProgram\" "
-                    + " WHERE \"LMSProgramID\" "
+                    + " FROM " + MiscConstants.DB_SCHEMA_NAME + ".LMSProgram "
+                    + " WHERE LMSProgramID "
                     + " NOT IN "
-                    + " ( SELECT \"LMSProgramID\" "
-                    + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramEnrollment\" " 
-                    + "   WHERE \"StudentUserId\" = {0} "
+                    + " ( SELECT LMSProgramID "
+                    + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".ProgramEnrollment " 
+                    + "   WHERE StudentUserId = {0} "
                     + " )";
+
             var resultSet =  _context.LMSPrograms.FromSql(sql, userID).AsNoTracking();
             ProgramsAreAvailable = (resultSet.Count() > 0);
         }

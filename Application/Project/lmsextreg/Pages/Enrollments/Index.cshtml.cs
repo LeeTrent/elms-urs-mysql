@@ -74,6 +74,7 @@ namespace lmsextreg.Pages.Enrollments
                     + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".ProgramEnrollment " 
                     + "   WHERE StudentUserId = {0} "
                     + " )";
+             /////////////////////////////////////////////////////////////////////////        
 
             var resultSet =  _context.LMSPrograms.FromSql(sql, userID).AsNoTracking();
             ProgramsAreAvailable = (resultSet.Count() > 0);

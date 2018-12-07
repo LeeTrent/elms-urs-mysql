@@ -245,17 +245,33 @@ namespace lmsextreg.Pages.Approvals
             // Now that record exists, make sure that the logged-in user
             // is authorized to edit (approver/deny) enrollment
             // applications for this particular LMS Program.
-            ////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////
+            // PostgreSQL
+            /////////////////////////////////////////////////////////////////////////              
+            // var sql = " SELECT * "
+            //         + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramEnrollment\" "
+            //         + "  WHERE  \"ProgramEnrollmentID\" = {0} "
+            //         + "    AND  \"LMSProgramID\" " 
+            //         + "     IN "
+            //         + "      ( "
+            //         + "        SELECT \"LMSProgramID\" "
+            //         + "          FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramApprover\" "
+            //         + "         WHERE \"ApproverUserId\" = {1} "
+            //         + "      ) ";
+            /////////////////////////////////////////////////////////////////////////
+            // MySQL
+            ///////////////////////////////////////////////////////////////////////// 
             var sql = " SELECT * "
-                    + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramEnrollment\" "
-                    + "  WHERE  \"ProgramEnrollmentID\" = {0} "
-                    + "    AND  \"LMSProgramID\" " 
+                    + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".ProgramEnrollment "
+                    + "  WHERE  ProgramEnrollmentID = {0} "
+                    + "    AND  LMSProgramID " 
                     + "     IN "
                     + "      ( "
-                    + "        SELECT \"LMSProgramID\" "
-                    + "          FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramApprover\" "
-                    + "         WHERE \"ApproverUserId\" = {1} "
+                    + "        SELECT LMSProgramID "
+                    + "          FROM " + MiscConstants.DB_SCHEMA_NAME + ".ProgramApprover "
+                    + "         WHERE ApproverUserId = {1} "
                     + "      ) ";
+            /////////////////////////////////////////////////////////////////////////
 
             lvProgramEnrollment = null;
             lvProgramEnrollment = await _dbContext.ProgramEnrollments
@@ -393,17 +409,33 @@ namespace lmsextreg.Pages.Approvals
 
         private string createAuthorizationSQL() 
         {
+            //////////////////////////////////////////////////////////////////////////
+            // PostgreSQL
+            ///////////////////////////////////////////////////////////////////////// 
+            // return    " SELECT * "
+            //         + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramEnrollment\" "
+            //         + "  WHERE  \"ProgramEnrollmentID\" = {0} "
+            //         + "    AND  \"LMSProgramID\" " 
+            //         + "     IN "
+            //         + "      ( "
+            //         + "        SELECT \"LMSProgramID\" "
+            //         + "          FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramApprover\" "
+            //         + "         WHERE \"ApproverUserId\" = {1} "
+            //         + "      ) ";
+            //////////////////////////////////////////////////////////////////////////
+            // MySQL
+            /////////////////////////////////////////////////////////////////////////  
             return    " SELECT * "
-                    + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramEnrollment\" "
-                    + "  WHERE  \"ProgramEnrollmentID\" = {0} "
-                    + "    AND  \"LMSProgramID\" " 
+                    + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".ProgramEnrollment "
+                    + "  WHERE  ProgramEnrollmentID = {0} "
+                    + "    AND  LMSProgramID " 
                     + "     IN "
                     + "      ( "
-                    + "        SELECT \"LMSProgramID\" "
-                    + "          FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramApprover\" "
-                    + "         WHERE \"ApproverUserId\" = {1} "
-                    + "      ) ";
-            
+                    + "        SELECT LMSProgramID "
+                    + "          FROM " + MiscConstants.DB_SCHEMA_NAME + ".ProgramApprover "
+                    + "         WHERE ApproverUserId = {1} "
+                    + "      ) ";              
+            /////////////////////////////////////////////////////////////////////////                 
         }
         private async Task<ProgramEnrollment> retrieveProgramEnrollment(string sql, int programEnrollmentID)   
         {

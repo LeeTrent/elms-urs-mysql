@@ -47,15 +47,30 @@ namespace lmsextreg.Pages.Approvals
                 // is authorized to approve /deny /revoke enrollment
                 // requests for this particular LMS Program.
                 //////////////////////////////////////////////////////////////
-                var sql = " SELECT * "
-                        + " FROM " + MiscConstants.DB_SCHEMA_NAME +  ".\"ProgramEnrollment\" "
-                        + " WHERE \"LMSProgramID\" " 
-                        + " IN "
-                        + " ( "
-                        + "   SELECT \"LMSProgramID\" "
-                        + "   FROM " + MiscConstants.DB_SCHEMA_NAME +  ".\"ProgramApprover\" "
-		                + "   WHERE \"ApproverUserId\" = {0} "
-	                    + " ) ";
+                // PostgreSQL
+                /////////////////////////////////////////////////////////////////////////                
+                // var sql = " SELECT * "
+                //         + " FROM " + MiscConstants.DB_SCHEMA_NAME +  ".\"ProgramEnrollment\" "
+                //         + " WHERE \"LMSProgramID\" " 
+                //         + " IN "
+                //         + " ( "
+                //         + "   SELECT \"LMSProgramID\" "
+                //         + "   FROM " + MiscConstants.DB_SCHEMA_NAME +  ".\"ProgramApprover\" "
+		            //     + "   WHERE \"ApproverUserId\" = {0} "
+	              //       + " ) ";
+              /////////////////////////////////////////////////////////////////////////
+              // MySQL
+              /////////////////////////////////////////////////////////////////////////
+              var sql = " SELECT * "
+                      + " FROM " + MiscConstants.DB_SCHEMA_NAME +  ".ProgramEnrollment "
+                      + " WHERE LMSProgramID " 
+                      + " IN "
+                      + " ( "
+                      + "   SELECT LMSProgramID "
+                      + "   FROM " + MiscConstants.DB_SCHEMA_NAME +  ".ProgramApprover "
+                  + "   WHERE ApproverUserId = {0} "
+                    + " ) ";
+            /////////////////////////////////////////////////////////////////////////
 
             // Console.WriteLine("SQL: ");
             // Console.WriteLine(sql);                        

@@ -82,17 +82,32 @@ namespace lmsextreg.Pages.Approvals
             // is authorized to edit (approver/deny) enrollment
             // applications for this particular LMS Program.
             ////////////////////////////////////////////////////////////
+            // PostgreSQL
+            /////////////////////////////////////////////////////////////////////////            
+            // var sql = " SELECT * "
+            //         + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramEnrollment\" "
+            //         + "  WHERE  \"ProgramEnrollmentID\" = {0} "
+            //         + "    AND  \"LMSProgramID\" " 
+            //         + "     IN "
+            //         + "      ( "
+            //         + "        SELECT \"LMSProgramID\" "
+            //         + "          FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramApprover\" "
+            //         + "         WHERE \"ApproverUserId\" = {1} "
+            //         + "      ) ";
+            /////////////////////////////////////////////////////////////////////////
+            // MySQL
+            /////////////////////////////////////////////////////////////////////////      
             var sql = " SELECT * "
-                    + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramEnrollment\" "
-                    + "  WHERE  \"ProgramEnrollmentID\" = {0} "
-                    + "    AND  \"LMSProgramID\" " 
+                    + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".ProgramEnrollment "
+                    + "  WHERE  ProgramEnrollmentID = {0} "
+                    + "    AND  LMSProgramID " 
                     + "     IN "
                     + "      ( "
-                    + "        SELECT \"LMSProgramID\" "
-                    + "          FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramApprover\" "
-                    + "         WHERE \"ApproverUserId\" = {1} "
+                    + "        SELECT LMSProgramID "
+                    + "          FROM " + MiscConstants.DB_SCHEMA_NAME + ".ProgramApprover "
+                    + "         WHERE ApproverUserId = {1} "
                     + "      ) ";
-
+            /////////////////////////////////////////////////////////////////////////  
             ProgramEnrollment = null;
             ProgramEnrollment = await _dbContext.ProgramEnrollments
                                 .FromSql(sql, id, _userManager.GetUserId(User))

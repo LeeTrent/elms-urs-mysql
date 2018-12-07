@@ -68,15 +68,29 @@ namespace lmsextreg.Pages.Enrollments
             // This is used to manage the user interface drope-down to make sure that
             // student can't enroll in the same program more than once.
             /////////////////////////////////////////////////////////////////////////
+            // PostgreSQL
+            /////////////////////////////////////////////////////////////////////////            
+            // var sql = " SELECT * "
+            //         + " FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"LMSProgram\" "
+            //         + " WHERE \"LMSProgramID\" "
+            //         + " NOT IN "
+            //         + " ( "
+            //         + "   SELECT \"LMSProgramID\" "
+            //         + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramEnrollment\" "
+            //         + "   WHERE \"StudentUserId\" = {0} "
+            //         + " )";
+            /////////////////////////////////////////////////////////////////////////
+            // MySQL
+            ///////////////////////////////////////////////////////////////////////// 
             var sql = " SELECT * "
-                    + " FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"LMSProgram\" "
-                    + " WHERE \"LMSProgramID\" "
+                    + " FROM " + MiscConstants.DB_SCHEMA_NAME + ".LMSProgram "
+                    + " WHERE LMSProgramID "
                     + " NOT IN "
                     + " ( "
-                    + "   SELECT \"LMSProgramID\" "
-                    + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".\"ProgramEnrollment\" "
-                    + "   WHERE \"StudentUserId\" = {0} "
-                    + " )";
+                    + "   SELECT LMSProgramID "
+                    + "   FROM " + MiscConstants.DB_SCHEMA_NAME + ".ProgramEnrollment "
+                    + "   WHERE StudentUserId = {0} "
+                    + " )";            
 
             //Console.WriteLine("SQL: ");
             //Console.WriteLine(sql);

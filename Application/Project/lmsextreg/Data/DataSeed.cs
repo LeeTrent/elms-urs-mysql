@@ -222,7 +222,7 @@ namespace lmsextreg.Data
             // These notifications will go to the Common Inbox instead.
             /////////////////////////////////////////////////////////////////////////////////////////////////////////            
             emailNotify = false;
-            await EnsureApprover(svcProvider, "lee.trent@gsa.gov", tempPW, "Lee", "Trent - PF1", "GS", "GS03", "PF", emailNotify);    
+            await EnsureApprover(svcProvider, "lee.trent.1@gmail.gov", tempPW, "Lee", "Trent - PF1", "GS", "GS03", "PF", emailNotify);    
 
             // Set up Vicki, Jason Hull, JMac and Al Ortega as approvers for Program C
             emailNotify = true;

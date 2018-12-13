@@ -20,7 +20,7 @@ namespace lmsextreg.Data
             await EnsureEnrollmentStatuses(dbContext);
             await EnsureStatusTransitions(dbContext);
             await EnsurePrograms(dbContext);
-            await EnsureApprovers(svcProvider, tempPW); 
+            //await EnsureApprovers(svcProvider, tempPW); 
             //await EnsureStudents(svcProvider, tempPW); 
             await EnsureEventTypes(dbContext);
             
@@ -203,17 +203,17 @@ namespace lmsextreg.Data
         }
 
 
-        private static async Task EnsureApprovers(IServiceProvider svcProvider, string tempPW)
-        {
-            Console.WriteLine("DataSeed.EnsureApprovers: BEGIN");
+//        private static async Task EnsureApprovers(IServiceProvider svcProvider, string tempPW)
+//        {
+//            Console.WriteLine("DataSeed.EnsureApprovers: BEGIN");
             
             /////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Stacy LoSchiavo & Sarah Whtimore, approvers for 'FLEET', do not receive email notifications directly.
+            // SL & SW, approvers for 'FLEET', do not receive email notifications directly.
             // They use a common inbox instead.
             /////////////////////////////////////////////////////////////////////////////////////////
-            bool emailNotify = false;
-            await EnsureApprover(svcProvider, "stacy.loschiavo@gsa.gov", tempPW, "Stacy", "LoSchiavo", "GS", "GS30", "FLEET", emailNotify);                        
-            await EnsureApprover(svcProvider, "sarah.whitmore@gsa.gov",  tempPW, "Sarah", "Whitmore",  "GS", "GS30", "FLEET", emailNotify);                        
+            // bool emailNotify = false;
+            // await EnsureApprover(svcProvider, "", tempPW, "", "", "GS", "GS30", "FLEET", emailNotify);                        
+            // await EnsureApprover(svcProvider, "",  tempPW, "", "",  "GS", "GS30", "FLEET", emailNotify);                        
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////
             // This is to test Common Inbox functionality
@@ -221,34 +221,28 @@ namespace lmsextreg.Data
             // Approver for Program F, lee.trent@gsa.gov, will not receive email notifications directly. 
             // These notifications will go to the Common Inbox instead.
             /////////////////////////////////////////////////////////////////////////////////////////////////////////            
-            emailNotify = false;
-            await EnsureApprover(svcProvider, "lee.trent.1@gmail.gov", tempPW, "Lee", "Trent - PF1", "GS", "GS03", "PF", emailNotify);    
+            // emailNotify = false;
+            // await EnsureApprover(svcProvider, "", tempPW, "", "", "GS", "GS03", "PF", emailNotify);    
 
-            // Set up Vicki, Jason Hull, JMac and Al Ortega as approvers for Program C
-            emailNotify = true;
-            // await EnsureApprover(svcProvider, "vicki.crawley@gsa.gov",    tempPW, "Victoria", "Crawley",    "GS", "GS03", "PC", emailNotify);    
-            // await EnsureApprover(svcProvider, "jason.hull@gsa.gov",       tempPW, "Jason",    "Hull",       "GS", "GS03", "PC", emailNotify);    
-            // await EnsureApprover(svcProvider, "james.mcconville@gsa.gov", tempPW, "James",    "McConville", "GS", "GS03", "PC", emailNotify);  
-            // await EnsureApprover(svcProvider, "alfred.ortega@gsa.gov",    tempPW, "Al",       "Ortega",     "GS", "GS03", "PC", emailNotify);  
-            
-            emailNotify = true;
-            await EnsureApprover(svcProvider, "vicaramis@gmail.com",        tempPW, "Victoria", "Crawley",    "GS", "GS03", "PC", emailNotify);    
-            await EnsureApprover(svcProvider, "golfj7769@gmail.com",        tempPW, "Jason",    "Hull",       "GS", "GS03", "PC", emailNotify);    
-            await EnsureApprover(svcProvider, "jmcc1121@gmail.com",         tempPW, "James",    "McConville", "GS", "GS03", "PC", emailNotify);  
-            await EnsureApprover(svcProvider, "alfredortegaiii@gmail.com",  tempPW, "Al",       "Ortega",     "GS", "GS03", "PC", emailNotify); 
+            // Set up VC, JH, JM and AO as approvers for Program C          
+            // emailNotify = true;
+            // await EnsureApprover(svcProvider, "", tempPW, "", "", "GS", "GS03", "PC", emailNotify);    
+            // await EnsureApprover(svcProvider, "", tempPW, "", "", "GS", "GS03", "PC", emailNotify);    
+            // await EnsureApprover(svcProvider, "", tempPW, "", "", "GS", "GS03", "PC", emailNotify);  
+            // await EnsureApprover(svcProvider, "", tempPW, "", "", "GS", "GS03", "PC", emailNotify); 
 
-            // Set up Chee Ong as an approver for Program B
-            emailNotify = true;
-            await EnsureApprover(svcProvider, "ongcw@yahoo.com",  tempPW, "Chee", "Ong",    "GS", "GS03", "PB", emailNotify); 
+            // Set up CO as an approver for Program B
+            // emailNotify = true;
+            // await EnsureApprover(svcProvider, "",  tempPW, "", "",    "GS", "GS03", "PB", emailNotify); 
 
             /////////////////////////////////////////////////////////////////////////////////////////
             // Default setting for program approvers is:
             // emailNotify = true; 
             /////////////////////////////////////////////////////////////////////////////////////////
-            emailNotify = true; 
+            //emailNotify = true; 
             
-            Console.WriteLine("DataSeed.EnsureApprovers: END");
-        }
+  //          Console.WriteLine("DataSeed.EnsureApprovers: END");
+  //      }
   
         private static async Task EnsureApprover(IServiceProvider svcProvider, string userName, string tempPW, 
                                                     string firstName, string lastName,

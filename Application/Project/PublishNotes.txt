@@ -1,0 +1,10 @@
+From the command line (Windows/Mac/Linux):
+    dotnet publish -c release -r rhel-x64
+    cd lmsextreg/bin/Release/netcoreapp2.1
+    
+From the Command Line (Mac/Linux):
+    tar cvf lmsextreg.tar rhel-x64
+    gzip lmsextreg.tar
+
+Updload lmsextreg.zip (Windows) or lmsextreg.tar.gz (Mac/Linux) to:
+\\e04tcv-CIFS02.ent.ds.gsa.gov\OCIO\DevDotNet

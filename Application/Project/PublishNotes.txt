@@ -7,4 +7,4 @@ From the Command Line (Mac/Linux):
     gzip lmsextreg.tar
 
 Updload lmsextreg.zip (Windows) or lmsextreg.tar.gz (Mac/Linux) to:
-\\e04tcv-CIFS02.ent.ds.gsa.gov\OCIO\DevDotNet
+\\e04tcv-CIFS02.ent.ds.gsa.gov\OCIO\DevDotNet\LMS\LMS-DEV

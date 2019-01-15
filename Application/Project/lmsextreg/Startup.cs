@@ -19,6 +19,7 @@ using lmsextreg.Services;
 using lmsextreg.Authorization;
 using lmsextreg.Authentication;
 using lmsextreg.Repositories;
+using lmsextreg.Constants;
 
 namespace lmsextreg
 {
@@ -34,8 +35,15 @@ namespace lmsextreg
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // CLOUD.GOV (please do not remove)
+            // String connectionString = buildConnectionString();
+            ////////////////////////////////////////////////////////////////////////////////////////////////////            
+             
+             ////////////////////////////////////////////////////////////////////////////////////////////////////   
              // Database Connection Parameters
-            String connectionString = buildConnectionString();
+             ////////////////////////////////////////////////////////////////////////////////////////////////////   
+            String connectionString = Configuration.GetValue<string>("DatabaseConnection");
             
             // WRITE CONNECTION STRING TO THE CONSOLE
             Console.WriteLine("********************************************************************************");
@@ -173,11 +181,16 @@ namespace lmsextreg
 
             app.UseMvc();
 
-            string externalLogFile = Environment.GetEnvironmentVariable("EXTLMS_LOGGING");
-            if ( String.IsNullOrEmpty(externalLogFile) == false)
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // LOG FILE SETUP
+            //  1. see EnvironmentVariables.txt
+            //  2. see lmsextreg.Constants.APPSETTINGS_FILE_NAME            
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            string logFileDirectory = Environment.GetEnvironmentVariable("LOGFILE_DIRECTORY");
+            if ( String.IsNullOrEmpty(logFileDirectory) == false)
             {
-                loggerFactory.AddFile(Environment.GetEnvironmentVariable("EXTLMS_LOGGING"));
-            }            
+                loggerFactory.AddFile(logFileDirectory + "/" + MiscConstants.APP_NAME + "-{Date}.log");
+            }
         }
 
         private String buildConnectionString()

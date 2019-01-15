@@ -13,38 +13,27 @@ using lmsextreg.Data;
 using lmsextreg.Constants;
 
 namespace lmsextreg
-{
+{   
     public class Program
     {
         public static void Main(string[] args)
         {
-            var host = BuildWebHost(args);
-
-            using (var scope = host.Services.CreateScope())
-            {
-                try
-                {
-                    var services = scope.ServiceProvider;
-                    // var context = services.GetRequiredService<ApplicationDbContext>();
-                    // context.Database.Migrate();
-
-                    var config = host.Services.GetRequiredService<IConfiguration>();
-                    var tempPW = config[MiscConstants.SEED_TEMP_PW];
-
-                    Console.WriteLine("[Program] tempPW: " +  tempPW);
-                    DataSeed.Initialize(services, tempPW).Wait();
-                }
-                catch (Exception ex)
-                {
-                    Console.Write(ex.StackTrace);
-                }
-            }
-            host.Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        ////////////////////////////////////////////////////////////////////////////////
+        // APPSETTINGS_DIRECTORY
+        ////////////////////////////////////////////////////////////////////////////////
+        //  1. see EnvironmentVariables.txt
+        //  2. see lmsextreg.Constants.APPSETTINGS_FILE_NAME
+        ////////////////////////////////////////////////////////////////////////////////
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.SetBasePath(Environment.GetEnvironmentVariable("APPSETTINGS_DIRECTORY"));
+                    config.AddJsonFile(MiscConstants.APPSETTINGS_FILE_NAME, optional: false, reloadOnChange: true);
+                })
+                .UseStartup<Startup>();                
     }
 }

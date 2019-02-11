@@ -16,10 +16,37 @@ namespace lmsextreg
 {   
     public class Program
     {
+        // public static void Main(string[] args)
+        // {
+        //     CreateWebHostBuilder(args).Build().Run();
+        // }
+
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            var host = CreateWebHostBuilder(args).Build();
+
+            using (var scope = host.Services.CreateScope())
+            {
+                try
+                {
+                    var services = scope.ServiceProvider;
+                    // var context = services.GetRequiredService<ApplicationDbContext>();
+                    // context.Database.Migrate();
+
+                    var config = host.Services.GetRequiredService<IConfiguration>();
+                    var tempPW = config[MiscConstants.SEED_TEMP_PW];
+
+                    Console.WriteLine("[Program] tempPW: " +  tempPW);
+                    DataSeed.Initialize(services, tempPW).Wait();
+                }
+                catch (Exception ex)
+                {
+                    Console.Write(ex.StackTrace);
+                }
+            }
+            host.Run();
         }
+
 
         ////////////////////////////////////////////////////////////////////////////////
         // APPSETTINGS_DIRECTORY

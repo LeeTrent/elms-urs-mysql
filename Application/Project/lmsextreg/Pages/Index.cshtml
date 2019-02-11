@@ -8,16 +8,16 @@
 
 @if ((await AuthorizationService.AuthorizeAsync(User, "CanAccessStudentLink")).Succeeded)
 {
-    <!-- <p class="h3 text-info text-center">
-        Students and future students: <a class="h3 text-primary" asp-page="/Enrollments/Index">Click Here!</a>
-    </p>       -->
-
-    <!-- <p class="h3 text-info text-center">
-        Students and future students: <a class="h5 text-primary" style="padding:5px; border: 1px solid #007bff;" asp-page="/Enrollments/Index">Click Here!</a>
-    </p>     -->
     <p class="h3 text-info text-center">
         Students and future students: <a class="h4 text-primary" style="padding:5px; border: 1px solid #007bff;" asp-page="/Enrollments/Index">Click Here!</a>
     </p>             
+}  
+
+@if ((await AuthorizationService.AuthorizeAsync(User, "CanAccessApproverLink")).Succeeded)
+{
+    <p class="h3 text-info text-center">
+        Enrollment Approvers: <a class="h4 text-primary" style="padding:5px; border: 1px solid #007bff;" asp-page="/Approvals/Index">Click Here!</a>
+    </p>       
 }  
 
 <h1>Fleet Management</h1>

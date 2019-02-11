@@ -1,8 +1,25 @@
 ﻿@page
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
+
+@if ((await AuthorizationService.AuthorizeAsync(User, "CanAccessStudentLink")).Succeeded)
+{
+    <!-- <p class="h3 text-info text-center">
+        Students and future students: <a class="h3 text-primary" asp-page="/Enrollments/Index">Click Here!</a>
+    </p>       -->
+
+    <!-- <p class="h3 text-info text-center">
+        Students and future students: <a class="h5 text-primary" style="padding:5px; border: 1px solid #007bff;" asp-page="/Enrollments/Index">Click Here!</a>
+    </p>     -->
+    <p class="h3 text-info text-center">
+        Students and future students: <a class="h4 text-primary" style="padding:5px; border: 1px solid #007bff;" asp-page="/Enrollments/Index">Click Here!</a>
+    </p>             
+}  
+
 <h1>Fleet Management</h1>
 <p>GSA’s Office of Fleet Management is the federal government’s source for all non-tactical vehicle purchasing and leasing solutions. GSA Fleet’s mission is to provide safe, reliable, low cost vehicle solutions to assist federal agencies in effectively and efficiently meeting their mission and federal mandates.  For more information about GSA Fleet’s leasing and purchasing programs visit <a target="_blank" href="https://gsa.gov/gsafleet">https://gsa.gov/gsafleet</a>.</p>
 <p>The Federal Fleet Manager Certification Program (FFMCP) was developed by the U.S. General Services Administration's (GSA) Office of Fleet Management in conjunction with the Office of Governmentwide Policy to provide training to Fleet Managers of all levels. The FFMCP is a comprehensive fleet management training program specific to federal fleet management</p>

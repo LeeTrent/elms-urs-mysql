@@ -21,7 +21,7 @@
     <div style="width:80%;margin: 0 auto; background-color:#FFF;">
             <nav class="navbar navbar-light navbar-expand-lg" style="width:100%;background-color:#e0e6eb;border-bottom: 4px solid #af3639;">
                 <a class="navbar-brand" style="margin-right:0px;" href="#">
-                    <img src="https://www.gsa.gov/sites/gsa.gov/templates/resources/images/nav-logo.png" width="30" height="30" alt="">
+                    <img src="https://www.gsa.gov/sites/gsa.gov/templates/resources/images/nav-logo.png" width="30" height="30" alt="GSA Logo">
                 </a>
                 <button aria-controls="navbarCollapse" 
                         aria-expanded="false"
@@ -60,15 +60,28 @@
                     @await Html.PartialAsync("_LoginPartial")
                 </div>
             </nav>
-            <div class="container body-content" style="margin-top:20px;font-family: 'Source Sans Pro', sans-serif;color:#333333;">
+            <div class="container body-content" style="width:90%;margin-top:20px;font-family: 'Source Sans Pro', sans-serif;color:#333333;">
                 @RenderBody()
                 <!-- <footer  style="background-color:#e0e6eb;width:100%;">
                     <p>&copy; 2018 - Learning Management System</p>
                 </footer> -->
             </div>
-                <footer style="background-color:#e0e6eb;width:100%;border-top: 4px solid #af3639;">
-                   &nbsp; <!-- <p>&copy; 2018 - Learning Management System</p> -->
-                </footer>            
+            <footer style="background-color:#e0e6eb;width:100%;padding-bottom: 10px;border-top: 4px solid #af3639;">
+                <!-- &nbsp; <p>&copy; 2018 - Learning Management System</p> -->
+                <div id="footer-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-7">
+                            <h3 title="GSA Logo">U.S. General Services Administration</h3>
+                            </div>
+                            <span class="pull-right">
+                                <img alt="American Flag" src="/sites/gsa.gov/templates/resources/images/icn-us-flag-21px.png" class="display-inline"/><small>&nbsp;Official website of the U.S. Government</small>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </footer>      
     </div>
     <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"

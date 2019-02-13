@@ -24,8 +24,18 @@ body {
     border: none;
 }
 
+.pull-right {
+    float: right !important;
+}
 
+div .display-inline {
+    display: inline-block;
+}
 
+.img-responsive {
+     max-width: 100%;
+    height: auto;
+}
 
 
 

@@ -12,15 +12,15 @@
             @if ((await AuthorizationService.AuthorizeAsync(User, "CanAccessProfileLink")).Succeeded)
             {
                 <li class="nav-item my-auto">
-                    <a class="nav-link" asp-page="/Account/Manage/Index" title="UserName">@UserManager.GetUserName(User)</a>
+                    <a class="nav-link" style="padding-top:19px;" asp-page="/Account/Manage/Index" title="UserName">@UserManager.GetUserName(User)</a>
                 </li>
                 <li class="nav-item my-auto">
-                    <a class="nav-link" asp-page="/Account/Manage/Index" title="Manage">My Profile</a>
+                    <a class="nav-link" style="padding-top:19px;" asp-page="/Account/Manage/Index" title="Manage">My Profile</a>
                 </li>
             }    
 
             <li class="nav-item my-auto">
-                <button type="submit" class="btn btn-link navbar-btn nav-link my-auto">Log out</button>
+                <button type="submit" class="btn btn-link navbar-btn nav-link my-auto" style="padding-top:19px;">Log out</button>
             </li>
         </ul>
     </form>
@@ -28,7 +28,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item"><a class="nav-link" style="color:#433f36;" asp-page="/Account/Register">Register</a></li>
-        <li class="nav-item"><a class="nav-link" style="color:#433f36;" asp-page="/Account/Login">Log in</a></li>
+        <li class="nav-item"><a class="nav-link" style="color:#433f36;padding-top:19px;" asp-page="/Account/Register">Register</a></li>
+        <li class="nav-item"><a class="nav-link" style="color:#433f36;padding-top:19px;" asp-page="/Account/Login">Log in</a></li>
     </ul>
 }

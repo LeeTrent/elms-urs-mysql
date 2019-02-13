@@ -18,67 +18,58 @@
     <link rel="stylesheet" href="~/css/required-field.min.css" />
 </head>
 <body style="padding-top:12.5px;background-color:#333333">
+    <div style="width:80%;margin: 0 auto; background-color:#FFF;">
+            <nav class="navbar navbar-light navbar-expand-lg" style="width:100%;background-color:#e0e6eb;border-bottom: 4px solid #af3639;">
+                <a class="navbar-brand" style="margin-right:0px;" href="#">
+                    <img src="https://www.gsa.gov/sites/gsa.gov/templates/resources/images/nav-logo.png" width="30" height="30" alt="">
+                </a>
+                <button aria-controls="navbarCollapse" 
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                        class="navbar-toggler"
+                        data-target="#topNavbarCollapse"
+                        data-toggle="collapse"
+                        type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="topNavbarCollapse">
+                    <ul class="mr-auto navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:#006db6;" asp-page="/Index">LMS Registration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:#433f36;" asp-page="/Index">Home</a>
+                        </li>
 
-
-<div style="width:80%;margin: 0 auto; background-color:#FFF;">
-
-    <!-- <div class="container"> -->
-        <nav class="navbar navbar-light navbar-expand-lg" style="width:100%;background-color:#e0e6eb;">
-        <!-- <nav class="bg-dark mb-4 navbar navbar-dark navbar-expand-md fixed-top"> -->
-            <!-- <a asp-page="/Index" class="navbar-brand">
-                <em>LMS Registration</em>
-            </a> -->
-            <a class="navbar-brand" style="margin-right:0px;" href="#">
-                <img src="https://www.gsa.gov/sites/gsa.gov/templates/resources/images/nav-logo.png" width="30" height="30" alt="">
-            </a>
-
-            <button aria-controls="navbarCollapse" 
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                    class="navbar-toggler"
-                    data-target="#topNavbarCollapse"
-                    data-toggle="collapse"
-                    type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="topNavbarCollapse">
-                <ul class="mr-auto navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" style="color:#006db6;" asp-page="/Index">LMS Registration</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color:#433f36;" asp-page="/Index">Home</a>
-                    </li>
-
-                    @if ((await AuthorizationService.AuthorizeAsync(User, "CanAccessStudentLink")).Succeeded)
-                    {
-                        <li class="nav-item"><a class="nav-link" style="color:#433f36;" asp-page="/Enrollments/Index">My Programs</a></li>
-                    }    
-                  
-                    @if ((await AuthorizationService.AuthorizeAsync(User, "CanAccessApproverLink")).Succeeded)
-                    {
-                        <li class="nav-item"><a class="nav-link" style="color:#433f36;" asp-page="/Approvals/Index">Enrollments</a></li>
-                    }   
-                    <li class="nav-item">
-                        <a class="nav-link" style="color:#433f36;" asp-page="/About">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color:#433f36;" asp-page="/Contact">Contact</a>
-                    </li>
-                </ul>
-                @await Html.PartialAsync("_LoginPartial")
-             </div>
-        </nav>
-    <!-- </div> -->
-   
-    <div class="container body-content" style="margin-top:20px;">
-        @RenderBody()
-        <hr />
-        <footer  style="background-color:#e0e6eb;">
-            <p>&copy; 2018 - Learning Management System</p>
-        </footer>
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "CanAccessStudentLink")).Succeeded)
+                        {
+                            <li class="nav-item"><a class="nav-link" style="color:#433f36;" asp-page="/Enrollments/Index">My Programs</a></li>
+                        }    
+                    
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "CanAccessApproverLink")).Succeeded)
+                        {
+                            <li class="nav-item"><a class="nav-link" style="color:#433f36;" asp-page="/Approvals/Index">Enrollments</a></li>
+                        }   
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:#433f36;" asp-page="/About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:#433f36;" asp-page="/Contact">Contact</a>
+                        </li>
+                    </ul>
+                    @await Html.PartialAsync("_LoginPartial")
+                </div>
+            </nav>
+            <div class="container body-content" style="margin-top:20px;">
+                @RenderBody()
+                <!-- <footer  style="background-color:#e0e6eb;width:100%;">
+                    <p>&copy; 2018 - Learning Management System</p>
+                </footer> -->
+            </div>
+                <footer style="background-color:#e0e6eb;width:100%;border-top: 4px solid #af3639;">
+                   &nbsp; <!-- <p>&copy; 2018 - Learning Management System</p> -->
+                </footer>            
     </div>
-</div>
     <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

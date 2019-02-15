@@ -14,8 +14,26 @@ body {
     padding-right: 15px;
 }
 
+/* .alert-info {
+    background-color: #bccad6; 
+    background-color: #ccd6e0;
+} */
 
-#footer-bar h3 {
+
+/* .text-info {
+    color: #004f87 !important;
+} */
+
+/* #footer-bar h3 {
+    color: #004f87;
+    padding: 68px 0 0 77px;
+    background: url(https://www.gsa.gov/sites/gsa.gov/templates/resources/images/footer-logo.png) no-repeat -1px 97%;
+    background-size: auto 70px;
+    font-size: 17px;
+    border: none;
+} */
+
+h3.footer-logo {
     color: #004f87;
     padding: 68px 0 0 77px;
     background: url(https://www.gsa.gov/sites/gsa.gov/templates/resources/images/footer-logo.png) no-repeat -1px 97%;
@@ -24,25 +42,112 @@ body {
     border: none;
 }
 
-.pull-right {
+/* h4.footer-flag {
+    color: #004f87;
+    padding: 68px 0 0 77px;
+    background: url(https://www.gsa.gov/sites/gsa.gov/templates/resources/images/icn-us-flag-21px.png) no-repeat -1px 97%;
+    background-size: auto 70px;
+    font-size: small;
+    border: none;
+} */
+
+/* .pull-right {
     float: right !important;
     padding: 68px 0 0 77px;
     margin-right: 20px;
 }
 
-div .display-inline {
+display-inline {
     display: inline-block;
-}
+} */
 
 .img-responsive {
      max-width: 100%;
     height: auto;
+} 
+
+.display-inline {
+    display: inline-block;
 }
 
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
+/* p.instructions {
+    color:#af3639;
+    text-align: center;
+}
 
+a.instructions {
+    color:#004f87;
+    padding:5px; 
+    border: 1px solid #004f87;
+} */
 
+p.instructions {
+    color:#006db6;
+    text-align: center;
+}
 
+a.instructions {
+    color:#af3639;
+    padding:5px; 
+    border: 1px solid #af3639;
+}
+
+h1.program-title {
+    color:#004f87;
+}
+
+a.program-link {
+    color:#af3639;
+}
+
+footer {
+    width:100%;
+    background-color:#e0e6eb;
+    /* padding-bottom: 10px; */
+    border-top: 4px solid #af3639;
+
+    /* background-color: yellow;     */
+}
+
+div.footer-outer-div { 
+    width: 100%;
+    height: 125px;   
+    /* padding: 0; 
+    padding-top: 25px; */
+
+    height: 110px;   
+    padding-top: 10px;
+    padding-bottom: 20px;
+
+    /* background-color: pink; */
+}
+
+div.footer-inner-div-left {
+    width: 50%;
+    float:left;
+    padding-left: 1rem;
+
+    /* height: 100%; */
+    /* background-color: lightgreen; */
+}
+
+div.footer-inner-div-right {
+    width: 50%;
+    float:right;
+    padding-right: 1rem;
+    text-align: right; 
+    padding-top: 68px;
+    
+    /* height: 100%;  */
+
+    /* background-color: lightblue; */
+}
 
 
 

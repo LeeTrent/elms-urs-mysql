@@ -46,14 +46,14 @@
                 </div>                 
                 <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey='@ViewData["ReCaptchaKey"]'></div>     
                 <div class="form-group">
-                    <button type="submit" id="lmsLoginButton" class="btn btn-primary" disabled>Log in</button>
+                    <button type="submit" id="lmsLoginButton" class="btn urs-btn-primary" disabled>Log in</button>
                 </div>
                 <div class="form-group">
-                    <p>
-                        <a asp-page="./ForgotPassword">Forgot your password?</a>
+                    <p class="urs-link-paragraph">
+                        <a class="urs-link-box" asp-page="./ForgotPassword">Forgot your password?</a>
                     </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                   <p class="urs-link-paragraph">
+                        <a class="urs-link-box" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
                     </p>
                 </div>
             </form>

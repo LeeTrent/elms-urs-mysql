@@ -60,26 +60,6 @@ div.urs-outer-container {
     padding-top:19px;
 }
 
-
-/* .alert-info {
-    background-color: #bccad6; 
-    background-color: #ccd6e0;
-} */
-
-
-/* .text-info {
-    color: #004f87 !important;
-} */
-
-/* #footer-bar h3 {
-    color: #004f87;
-    padding: 68px 0 0 77px;
-    background: url(https://www.gsa.gov/sites/gsa.gov/templates/resources/images/footer-logo.png) no-repeat -1px 97%;
-    background-size: auto 70px;
-    font-size: 17px;
-    border: none;
-} */
-
 h3.footer-logo {
     color: #004f87;
     padding: 68px 0 0 77px;
@@ -88,25 +68,6 @@ h3.footer-logo {
     font-size: 17px;
     border: none;
 }
-
-/* h4.footer-flag {
-    color: #004f87;
-    padding: 68px 0 0 77px;
-    background: url(https://www.gsa.gov/sites/gsa.gov/templates/resources/images/icn-us-flag-21px.png) no-repeat -1px 97%;
-    background-size: auto 70px;
-    font-size: small;
-    border: none;
-} */
-
-/* .pull-right {
-    float: right !important;
-    padding: 68px 0 0 77px;
-    margin-right: 20px;
-}
-
-display-inline {
-    display: inline-block;
-} */
 
 .img-responsive {
      max-width: 100%;
@@ -141,9 +102,14 @@ p.urs-instructions {
    /* color: red; */
 }
 
-a.urs-instructions {
+a.urs-link {
     color:#af3639;
-    padding:5px; 
+    padding: 7.5px; 
+}
+
+a.urs-link-box {
+    color:#af3639;
+    padding: 7.5px; 
     border: 1px solid #af3639;
 }
 
@@ -201,8 +167,15 @@ div.footer-inner-div-right {
     /* background-color: lightblue; */
 }
 
+button.urs-btn-primary {
+    color: #FFF;
+    background-color: #006db6;
+    border-color:  #006db6;
+}
 
-
+p.urs-link-paragraph {
+    margin-top: 25px;
+}
 
 h2, .h2 { font-size: 30px; }
 h4, .h4 { font-size: 18px; }
